@@ -1,8 +1,11 @@
-/*
- * STD.h
- *
- *  Created on: Aug 29, 2026
- *      Author: Mohamed Hesham
+/**
+ * @file STD.h
+ * @author Mohamed Hesham[cite: 4]
+ * @email m.hesham2612@gmail.com
+ * @linkedin https://www.linkedin.com/in/mohamed-hesham-a0809132b
+ * @brief Standard data types and constant definitions.
+ * @version 1.0
+ * @date 2026-08-29[cite: 4]
  */
 
 #ifndef LIB_STD_H_

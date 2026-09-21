@@ -1,9 +1,24 @@
+/**
+ * @file Patient_program.c
+ * @author Mohamed Hesham
+ * @email m.hesham2612@gmail.com
+ * @linkedin https://www.linkedin.com/in/mohamed-hesham-a0809132b
+ * @brief Implementation of the clinic system functions (Patients management & Slots reservations).
+ * @version 1.0
+ * @date 2026-08-29
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "STD.h"
 #include "Patient_interface.h"
 
+/**
+ * @brief Checks the admin password with a maximum of 3 attempts.
+ * @return u8 Returns 1 if access granted, 0 if access denied.
+ */
 u8 Check_Password()
 {
     u32 password, counter = 0;
@@ -22,6 +37,10 @@ u8 Check_Password()
     return 0;
 }
 
+/**
+ * @brief Adds a new patient to the linked list after checking ID uniqueness.
+ * @param head Double pointer to the head of the patient linked list.
+ */
 void Add_Patient(struct Patient **head)
 {
     u32 id;
@@ -54,6 +73,12 @@ void Add_Patient(struct Patient **head)
     (last)->Next = temp;
 }
 
+/**
+ * @brief Searches for a patient by ID in the linked list.
+ * @param id Patient ID to search for.
+ * @param head Pointer to the head of the patient linked list.
+ * @return struct Patient* Pointer to the found patient node, or NULL if not found.
+ */
 struct Patient *Search_patient(u8 id, struct Patient *head)
 {
     struct Patient *temp = head;
@@ -68,6 +93,10 @@ struct Patient *Search_patient(u8 id, struct Patient *head)
     return NULL;
 }
 
+/**
+ * @brief Edits patient information based on their ID.
+ * @param head Pointer to the head of the patient linked list.
+ */
 void Edit_Patient(struct Patient *head)
 {
     u32 id;
@@ -88,6 +117,10 @@ void Edit_Patient(struct Patient *head)
     printf("Done.\n");
 }
 
+/**
+ * @brief Displays details of a specific patient.
+ * @param patient Pointer to the patient structure.
+ */
 void Display_Patient(struct Patient *patient)
 {
     printf("ID: %d\n", patient->ID);
@@ -103,6 +136,10 @@ void Display_Patient(struct Patient *patient)
     }
 }
 
+/**
+ * @brief Deletes all patients from memory and resets the head pointer.
+ * @param head Double pointer to the head of the patient linked list.
+ */
 void Delete_Patient(struct Patient **head)
 {
     struct Patient *temp = *head;
@@ -118,6 +155,10 @@ void Delete_Patient(struct Patient **head)
     printf("Done\n");
 }
 
+/**
+ * @brief Initializes all clinic slots to available (0).
+ * @param slot Array of slots.
+ */
 void Slot_Inti(struct Slots slot[])
 {
     for (u32 i = 0; i < 5; i++)
@@ -126,6 +167,10 @@ void Slot_Inti(struct Slots slot[])
     }
 }
 
+/**
+ * @brief Displays slots that are currently available for reservation.
+ * @param slot Array of slots.
+ */
 void Display_Slots_Avaliable(struct Slots slot[])
 {
     printf("Avaliable Slots:\n");
@@ -138,6 +183,11 @@ void Display_Slots_Avaliable(struct Slots slot[])
     }
 }
 
+/**
+ * @brief Reserves a specific slot for a registered patient.
+ * @param slot Array of slots.
+ * @param head Pointer to the head of the patient linked list.
+ */
 void Reserve_Slot(struct Slots slot[], struct Patient *head)
 {
     u32 id, choice;
@@ -166,6 +216,11 @@ void Reserve_Slot(struct Slots slot[], struct Patient *head)
     printf("done\n");
 }
 
+/**
+ * @brief Cancels an active slot reservation for a patient.
+ * @param slot Array of slots.
+ * @param head Pointer to the head of the patient linked list.
+ */
 void Cancle_Slot(struct Slots slot[], struct Patient *head)
 {
     u32 id;
@@ -188,6 +243,11 @@ void Cancle_Slot(struct Slots slot[], struct Patient *head)
     printf("This ID does not reserved any slot\n");
 }
 
+/**
+ * @brief Displays today's reservation information for a patient.
+ * @param slot Array of slots.
+ * @param head Pointer to the head of the patient linked list.
+ */
 void Display_Reservations(struct Slots slot[], struct Patient *head)
 {
     u32 id;

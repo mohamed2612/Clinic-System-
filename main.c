@@ -1,7 +1,19 @@
+/**
+ * @file main.c
+ * @author Mohamed Hesham
+ * @email m.hesham2612@gmail.com
+ * @linkedin https://www.linkedin.com/in/mohamed-hesham-a0809132b
+ * @brief Main entry point for the Clinic Management System.
+ * @version 1.0
+ * @date 2026-08-29
+ */
+
+
 #include <stdio.h>
 #include <string.h>
 #include "STD.h"
 #include "Patient_interface.h"
+
 
 int main()
 {
